@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:58:18 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/05/16 18:45:52 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:48:19 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_calc(t_corsair *cor)
 	BN_sub(cor->fi2, cor->p, cor->one);
 	BN_mul(cor->totient, cor->fi1, cor->fi2, cor->ctx);
 	BN_mod_inverse(cor->d, cor->e, cor->totient, cor->ctx);
-	RSA_set0_key(cor->private, cor->n1, cor->e, cor->d);
+	RSA_set0_key(cor->private, BN_dup(cor->n1), BN_dup(cor->e), BN_dup(cor->d));
 	RSA_set0_factors(cor->rsa1, cor->p, cor->q1);
-	RSA_set0_factors(cor->rsa2, cor->p, cor->q2);
+	RSA_set0_factors(cor->rsa2, BN_dup(cor->p), cor->q2);
 }

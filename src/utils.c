@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:56:24 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/05/16 20:10:08 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:46:58 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 struct s_error_info	g_error_list[] = {
 [ER_USAGE] = {ER_USAGE, "\nUsage:\n\t ./corsair key1 key2 message\n"},
 [ER_FILE] = {ER_FILE, "Error opening file: "},
-[ER_KEY] = {ER_KEY, "Error getting certificate or private key from file: %s"},
+[ER_KEY] = {ER_KEY, "Error getting certificate or private key from file: "},
 [ER_MEM] = {ER_MEM, "Failed to assign memory."},
 [ER_READ] = {ER_READ, "Error reading file."}
 };

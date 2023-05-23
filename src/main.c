@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:42:15 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/05/16 20:02:03 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:47:48 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static void	ft_check_args(int ac, char **av, t_corsair *corsair)
 	corsair->rsa1 = ft_get_rsa(av[1]);
 	corsair->rsa2 = ft_get_rsa(av[2]);
 	ft_open_file(av[3], corsair);
-	printf("av 3 es: %s\n", av[3]);
 }
 
 static void	ft_open_file(char *file, t_corsair *corsair)
@@ -66,14 +65,11 @@ static void	ft_free(t_corsair *c)
 	BN_CTX_free(c->ctx);
 	BIO_free(c->bioprint);
 	BN_free(c->one);
-	BN_free(c->n1);
-	BN_free(c->n2);
-	BN_free(c->q1);
-	BN_free(c->q2);
-	BN_free(c->p);
 	BN_free(c->d);
-	BN_free(c->e);
 	BN_free(c->totient);
 	BN_free(c->fi1);
 	BN_free(c->fi2);
+	RSA_free(c->private);
+	RSA_free(c->rsa1);
+	RSA_free(c->rsa2);
 }
